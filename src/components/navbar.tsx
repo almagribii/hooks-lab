@@ -56,7 +56,7 @@ export const Navbar = () => {
           <ul className="space-y-2 font-medium">
             <li>
               <a
-                href=""
+                href="/"
                 className="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group"
               >
                 <MdDashboard className="w-5 h-5 transition duration-75 group-hover:text-fg-brand" />
