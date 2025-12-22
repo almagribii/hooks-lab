@@ -56,7 +56,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
               route="/usestate"
               childrenItems={[
                 { label: "Counter", route: "/usestate/counter" },
-                { label: "Advanced", route: "/usestate/advanced" },
+                { label: "Forms", route: "/usestate/forms" },
               ]}
             />
             <NavItem icon={RefreshCw} label="Use Effect" route="/useeffect" />
