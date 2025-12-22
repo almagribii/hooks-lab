@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
 
         <div className="ml-4 hidden sm:block">
           <h2 className="text-sm font-medium text-gray-500 uppercase tracking-wider">
-            Overview
+            Dashboard
           </h2>
         </div>
       </div>
@@ -43,10 +43,10 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
 
         <button className="flex items-center gap-2 p-1 pr-3 hover:bg-gray-100 rounded-full transition-colors">
           <div className="w-8 h-8 rounded-full bg-linear-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-xs">
-            JD
+            BA
           </div>
           <span className="text-sm font-medium text-gray-700 hidden lg:block">
-            John Doe
+            Brucad Al Magribi
           </span>
         </button>
       </div>

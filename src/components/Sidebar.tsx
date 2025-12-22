@@ -2,13 +2,12 @@ import React from "react";
 import {
   Home,
   User,
-  Settings,
   X,
   Layers,
-
   ChevronRight,
   type LucideIcon,
 } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -21,10 +20,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
       <aside
         className={`
           fixed inset-y-0 left-0 z-50 bg-slate-900 text-white transition-all duration-300 ease-in-out overflow-hidden
-          /* Mobile: Sliding effect */
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
-          /* Desktop: Width toggle effect */
-          lg:relative lg:translate-x-0 
+          lg:relative 
+          // sidebar desktop
           ${isOpen ? "lg:w-64" : "lg:w-0"}
         `}
       >
@@ -45,9 +43,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           </div>
 
           <nav className="mt-6 px-4 space-y-2">
-            <NavItem icon={Home} label="Dashboard" active />
-            <NavItem icon={User} label="Users Management" />
-            <NavItem icon={Settings} label="System Settings" />
+            <NavItem icon={Home} label="Dashboard" route="/" />
+            <NavItem icon={User} label="Use State" route="/usestate" />
+            <NavItem icon={User} label="Use Effect" route="/useeffect" />
+            <NavItem icon={User} label="Use Context" route="/usecontext" />
+            <NavItem icon={User} label="Use Reducer" route="/usereducer" />
+            <NavItem icon={User} label="Use Memo" route="/usememo" />
+            <NavItem icon={User} label="Use Callback" route="/usecallback" />
+            <NavItem icon={User} label="Use Ref" route="/useref" />
           </nav>
         </div>
       </aside>
@@ -64,37 +67,41 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
 
 interface NavItemProps {
   icon: LucideIcon;
+  route: string;
   label: string;
-  active?: boolean;
 }
 
 const NavItem: React.FC<NavItemProps> = ({
   icon: Icon,
+  route = "#",
   label,
-  active = false,
 }) => (
-  <a
-    href="#"
-    className={`
+  <NavLink
+    to={route}
+    className={({ isActive }) => `
     flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 group
     ${
-      active
+      isActive
         ? "bg-blue-600 text-white shadow-lg shadow-blue-900/20"
         : "text-slate-400 hover:bg-slate-800 hover:text-white"
     }
   `}
   >
-    <div className="flex items-center">
-      <Icon size={20} />
-      <span className="ml-3 font-medium whitespace-nowrap">{label}</span>
-    </div>
-    <ChevronRight
-      size={14}
-      className={`transition-transform ${
-        active ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-      }`}
-    />
-  </a>
+    {({ isActive }) => (
+      <>
+        <div className="flex items-center">
+          <Icon size={20} />
+          <span className="ml-3 font-medium whitespace-nowrap">{label}</span>
+        </div>
+        <ChevronRight
+          size={14}
+          className={`transition-transform ${
+            isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+          }`}
+        />
+      </>
+    )}
+  </NavLink>
 );
 
 export default Sidebar;

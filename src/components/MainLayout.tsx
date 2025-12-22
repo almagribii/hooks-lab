@@ -1,6 +1,6 @@
 import React, { useState} from "react";
-import Sidebar from "./sidebar";
-import Header from "./header";
+import Sidebar from "./Sidebar";
+import Header from "./Header";
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -12,7 +12,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const toggleSidebar = () => setIsOpen((prev) => !prev);
 
   return (
-    <div className="flex h-screen bg-gray-50 overflow-hidden font-sans text-gray-900">
+    <div 
+    className="flex h-screen bg-gray-50 overflow-hidden font-sans text-gray-900">
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
 
       <div className="flex flex-col flex-1 min-w-0">
