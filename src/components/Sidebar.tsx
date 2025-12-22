@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Home,
-  User,
+  Zap,
+  RefreshCw,
+  Users,
+  GitMerge,
+  Cpu,
+  Repeat,
+  Anchor,
   X,
   Layers,
   ChevronRight,
   type LucideIcon,
 } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -44,13 +50,21 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
 
           <nav className="mt-6 px-4 space-y-2">
             <NavItem icon={Home} label="Dashboard" route="/" />
-            <NavItem icon={User} label="Use State" route="/usestate" />
-            <NavItem icon={User} label="Use Effect" route="/useeffect" />
-            <NavItem icon={User} label="Use Context" route="/usecontext" />
-            <NavItem icon={User} label="Use Reducer" route="/usereducer" />
-            <NavItem icon={User} label="Use Memo" route="/usememo" />
-            <NavItem icon={User} label="Use Callback" route="/usecallback" />
-            <NavItem icon={User} label="Use Ref" route="/useref" />
+            <NavItem
+              icon={Zap}
+              label="Use State"
+              route="/usestate"
+              childrenItems={[
+                { label: "Counter", route: "/usestate/counter" },
+                { label: "Advanced", route: "/usestate/advanced" },
+              ]}
+            />
+            <NavItem icon={RefreshCw} label="Use Effect" route="/useeffect" />
+            <NavItem icon={Users} label="Use Context" route="/usecontext" />
+            <NavItem icon={GitMerge} label="Use Reducer" route="/usereducer" />
+            <NavItem icon={Cpu} label="Use Memo" route="/usememo" />
+            <NavItem icon={Repeat} label="Use Callback" route="/usecallback" />
+            <NavItem icon={Anchor} label="Use Ref" route="/useref" />
           </nav>
         </div>
       </aside>
@@ -65,43 +79,97 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   );
 };
 
+type SubItem = { label: string; route: string };
+
 interface NavItemProps {
   icon: LucideIcon;
   route: string;
   label: string;
+  childrenItems?: SubItem[];
 }
 
 const NavItem: React.FC<NavItemProps> = ({
   icon: Icon,
   route = "#",
   label,
-}) => (
-  <NavLink
-    to={route}
-    className={({ isActive }) => `
-    flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 group
+  childrenItems,
+}) => {
+  const location = useLocation();
+  const [open, setOpen] = useState(() => {
+    const isDesktop =
+      typeof window !== "undefined" && window.innerWidth >= 1024;
+    return isDesktop || location.pathname.startsWith(route);
+  });
+
+  useEffect(() => {
+    if (location.pathname.startsWith(route)) setOpen(true);
+  }, [location.pathname, route]);
+
+  return (
+    <div>
+      <div className="flex items-center justify-between">
+        <NavLink
+          to={route}
+          className={({ isActive }) => `
+    flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 group w-full
     ${
       isActive
         ? "bg-blue-600 text-white shadow-lg shadow-blue-900/20"
         : "text-slate-400 hover:bg-slate-800 hover:text-white"
     }
   `}
-  >
-    {({ isActive }) => (
-      <>
-        <div className="flex items-center">
-          <Icon size={20} />
-          <span className="ml-3 font-medium whitespace-nowrap">{label}</span>
+        >
+          {({ isActive }) => (
+            <div className="flex items-center w-full">
+              <div className="flex items-center">
+                <Icon size={20} />
+                <span className="ml-3 font-medium whitespace-nowrap">
+                  {label}
+                </span>
+              </div>
+              {childrenItems && childrenItems.length > 0 ? (
+                <div className="ml-auto">
+                  <ChevronRight
+                    size={14}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setOpen((s) => !s);
+                    }}
+                    className={`cursor-pointer transition-transform transform ${
+                      open || isActive
+                        ? "rotate-90 opacity-100"
+                        : "opacity-0 group-hover:opacity-100 rotate-0"
+                    }`}
+                  />
+                </div>
+              ) : null}
+            </div>
+          )}
+        </NavLink>
+      </div>
+
+      {childrenItems && childrenItems.length > 0 && (
+        <div className={`mt-2 pl-8 space-y-1 ${open ? "block" : "hidden"}`}>
+          {childrenItems.map((sub) => (
+            <NavLink
+              key={sub.route}
+              to={sub.route}
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-sm transition-colors ${
+                  isActive
+                    ? "bg-blue-500 text-white"
+                    : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                }`
+              }
+            >
+              {sub.label}
+            </NavLink>
+          ))}
         </div>
-        <ChevronRight
-          size={14}
-          className={`transition-transform ${
-            isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-          }`}
-        />
-      </>
-    )}
-  </NavLink>
-);
+      )}
+    </div>
+  );
+};
 
 export default Sidebar;
