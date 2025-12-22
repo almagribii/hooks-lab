@@ -14,7 +14,7 @@ export const Counter = () => {
 
   return (
     <div className="w-full max-w-6xl mx-auto p-8">
-      <div className="mb-8">
+      <div className="mb-8 flex flex-col items-center text-center">
         <h1 className="text-4xl font-bold text-gray-900 mb-2">Use State Demo</h1>
         <p className="text-lg text-gray-600">
           Perbedaan antara state dengan useState vs variable biasa
