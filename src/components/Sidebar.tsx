@@ -57,6 +57,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
               childrenItems={[
                 { label: "Counter", route: "/usestate/counter" },
                 { label: "Forms", route: "/usestate/forms" },
+                { label: "Toogles", route: "/usestate/toogles" },
               ]}
             />
             <NavItem icon={RefreshCw} label="Use Effect" route="/useeffect" />
@@ -150,7 +151,7 @@ const NavItem: React.FC<NavItemProps> = ({
       </div>
 
       {childrenItems && childrenItems.length > 0 && (
-        <div className={`mt-2 pl-8 space-y-1 ${open ? "block" : "hidden"}`}>
+        <div className={`mt-2 pl-2 space-y-1 ${open ? "block" : "hidden"}`}>
           {childrenItems.map((sub) => (
             <NavLink
               key={sub.route}
