@@ -60,7 +60,17 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                 { label: "Toggles", route: "/usestate/toggles" },
               ]}
             />
-            <NavItem icon={RefreshCw} label="Use Effect" route="/useeffect" />
+            <NavItem
+              icon={RefreshCw}
+              label="Use Effect"
+              route="/useeffect"
+              childrenItems={[
+                { label: "Timer", route: "/useeffect/timer" },
+                { label: "Fetching Data", route: "/useeffect/fetchingdata" },
+                { label: "Event Listener", route: "/useeffect/eventlistener" },
+                { label: "Synchronization", route: "/useeffect/synchronization" },
+              ]}
+            />
             <NavItem icon={Users} label="Use Context" route="/usecontext" />
             <NavItem icon={GitMerge} label="Use Reducer" route="/usereducer" />
             <NavItem icon={Cpu} label="Use Memo" route="/usememo" />
