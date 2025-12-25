@@ -107,9 +107,8 @@ const NavItem: React.FC<NavItemProps> = ({
 }) => {
   const location = useLocation();
   const [open, setOpen] = useState(() => {
-    const isDesktop =
-      typeof window !== "undefined" && window.innerWidth >= 1024;
-    return isDesktop || location.pathname.startsWith(route);
+
+    return location.pathname.startsWith(route);
   });
 
   useEffect(() => {
