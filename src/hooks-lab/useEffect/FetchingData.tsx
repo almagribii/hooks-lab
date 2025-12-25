@@ -9,6 +9,7 @@ interface Post {
 
 const url = "https://jsonplaceholder.typicode.com/posts";
 
+
 export const FetchingData = () => {
   const [post, setPost] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
@@ -129,7 +130,7 @@ export const FetchingData = () => {
               </div>
             </div>
 
-            <div className="mt-20 p-4 bg-slate-800 rounded-lg border border-slate-700">
+            <div className="mt-20 p-4 bg-slate-800 rounded-lg border FROMborder-slate-700">
               <code className="text-xs text-pink-400">
                 useEffect(() ={">"} {"{"} <br />
                 &nbsp;&nbsp;fetchData(); <br />
