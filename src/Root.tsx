@@ -14,33 +14,42 @@ import { UseMemo } from "./pages/UseMemo";
 import { UseReducer } from "./pages/UseReducer";
 import { UseRef } from "./pages/UseRef";
 import { Dashboard } from "./pages/Dashboard";
+import { DarkLightMode } from "./hooks-lab/useContext/DarkLightMode";
+import { AuthContext } from "./hooks-lab/useContext/AuthContext";
+import { LanguageMode } from "./hooks-lab/useContext/Language";
 
 function App() {
   return (
     <div>
-       <Routes>
-        <Route path="/" element={<Dashboard/>} />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
         {/* Use State Case */}
-       <Route path="/usestate" element={<UseState />} />
-       <Route path="/usestate/counter" element={<Counter />} />
-       <Route path="/usestate/forms" element={<Forms />} />
-       <Route path="/usestate/toggles" element={<Toggle />} />
+        <Route path="/usestate" element={<UseState />} />
+        <Route path="/usestate/counter" element={<Counter />} />
+        <Route path="/usestate/forms" element={<Forms />} />
+        <Route path="/usestate/toggles" element={<Toggle />} />
 
-       {/* Use Effect Case */}
-       <Route path="/useeffect" element={<UseEffect />} />
-       <Route path="/useeffect/synchronization" element={<Synchronization />} />
-       <Route path="/useeffect/timer" element={<Timer />} />
-       <Route path="/useeffect/fetchingdata" element={<FetchingData />} />
-       <Route path="/useeffect/eventlistener" element={<EventListener />} />
+        {/* Use Effect Case */}
+        <Route path="/useeffect" element={<UseEffect />} />
+        <Route
+          path="/useeffect/synchronization"
+          element={<Synchronization />}
+        />
+        <Route path="/useeffect/timer" element={<Timer />} />
+        <Route path="/useeffect/fetchingdata" element={<FetchingData />} />
+        <Route path="/useeffect/eventlistener" element={<EventListener />} />
 
+        {/* Use Context Case */}
+        <Route path="/usecontext" element={<UseContext />} />
+        <Route path="/usecontext/darklightmode" element={<DarkLightMode />} />
+        <Route path="/usecontext/authcontext" element={<AuthContext />} />
+        <Route path="/usecontext/languagemode" element={<LanguageMode />} />
 
-       <Route path="/usecontext" element={<UseContext />} />
-       <Route path="/usecallback" element={<UseCallback/>} />
-       <Route path="/usememo" element={<UseMemo/>} />
-       <Route path="/usereducer" element={<UseReducer/>} />
-       <Route path="/useref" element={<UseRef/>} />
-
-
+        {/* Other Hooks Cases */}
+        <Route path="/usecallback" element={<UseCallback />} />
+        <Route path="/usememo" element={<UseMemo />} />
+        <Route path="/usereducer" element={<UseReducer />} />
+        <Route path="/useref" element={<UseRef />} />
       </Routes>
     </div>
   );
