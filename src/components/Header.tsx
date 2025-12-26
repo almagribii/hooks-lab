@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Bell, Search } from "lucide-react";
+import { Menu, Bell, Search, Settings } from "lucide-react";
 
 interface HeaderProps {
   toggleSidebar: () => void;
@@ -43,10 +43,10 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
 
         <button className="flex items-center gap-2 p-1 pr-3 hover:bg-gray-100 rounded-full transition-colors">
           <div className="w-8 h-8 rounded-full bg-linear-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-xs">
-            BA
+            <Settings size={16} />
           </div>
           <span className="text-sm font-medium text-gray-700 hidden lg:block">
-            Brucad Al Magribi
+            Setting
           </span>
         </button>
       </div>
