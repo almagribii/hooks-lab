@@ -154,7 +154,7 @@ export const Dashboard = () => {
           </div>
           <div className="h-px flex-1 bg-slate-100 mx-8 hidden md:block"></div>
           <p className="text-slate-400 font-bold text-sm italic">
-            Project: Version 2.0
+            Project: Version 1.0
           </p>
         </div>
 
