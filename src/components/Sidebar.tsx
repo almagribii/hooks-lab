@@ -71,7 +71,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                 { label: "Synchronization", route: "/useeffect/synchronization" },
               ]}
             />
-            <NavItem icon={Users} label="Use Context" route="/usecontext" />
+            <NavItem icon={Users} label="Use Context" route="/usecontext" 
+            childrenItems={
+              [
+                {label: "Dark Light Mode", route: "usecontext/darklightmode"},
+                {label: "Auth Context", route: "usecontext/authcontext"},
+                {label: "Language Mode", route: "usecontext/languagemode"}
+              ]
+            }/>
             <NavItem icon={GitMerge} label="Use Reducer" route="/usereducer" />
             <NavItem icon={Cpu} label="Use Memo" route="/usememo" />
             <NavItem icon={Repeat} label="Use Callback" route="/usecallback" />
