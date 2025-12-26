@@ -313,7 +313,7 @@ export const DarkLightMode = () => {
 function KontenUtama() {
   const { isDark } = useTheme();
   return (
-    <div className="text-center">
+    <div className="text-center flex flex-col items-center">
       <div
         className={`mb-6 p-4 rounded-lg border-2 border-dashed ${
           isDark ? "border-slate-600" : "border-indigo-200"
