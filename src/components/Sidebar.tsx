@@ -21,6 +21,17 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
+  const location = useLocation();
+  const [activeGroup, setActiveGroup] = useState<string | null>(null);
+
+  useEffect(() => {
+    const parents = ["/usestate", "/useeffect", "/usecontext"];
+    const match = parents.find((parent) =>
+      location.pathname.startsWith(parent)
+    );
+    setActiveGroup(match ?? null);
+  }, [location.pathname]);
+
   return (
     <>
       <aside
@@ -33,10 +44,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         `}
       >
         <div className="w-64">
-          <div className="flex items-center justify-between h-16 px-6 bg-slate-950 border-b border-slate-800">
+          <div className="flex items-center justify-between h-14 sm:h-16 px-4 sm:px-6 bg-slate-950 border-b border-slate-800">
             <div className="flex items-center gap-2">
-              <Layers className="text-blue-400" size={24} />
-              <span className="text-xl font-bold tracking-wider italic">
+              <Layers
+                className="text-blue-400 sm:w-6 sm:h-6"
+                size={20}
+              />
+              <span className="text-lg sm:text-xl font-bold tracking-wider italic">
                 HOOKS LAB
               </span>
             </div>
@@ -48,8 +62,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
             </button>
           </div>
 
-          <nav className="mt-6 px-4 space-y-2">
-            <NavItem icon={Home} label="Dashboard" route="/" />
+          <nav className="mt-4 sm:mt-6 px-3 sm:px-4 space-y-1 sm:space-y-2">
+            <NavItem
+              icon={Home}
+              label="Dashboard"
+              route="/"
+              activeGroup={activeGroup}
+              setActiveGroup={setActiveGroup}
+            />
             <NavItem
               icon={Zap}
               label="Use State"
@@ -59,6 +79,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                 { label: "Forms", route: "/usestate/forms" },
                 { label: "Toggles", route: "/usestate/toggles" },
               ]}
+              activeGroup={activeGroup}
+              setActiveGroup={setActiveGroup}
             />
             <NavItem
               icon={RefreshCw}
@@ -68,21 +90,57 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                 { label: "Timer", route: "/useeffect/timer" },
                 { label: "Fetching Data", route: "/useeffect/fetchingdata" },
                 { label: "Event Listener", route: "/useeffect/eventlistener" },
-                { label: "Synchronization", route: "/useeffect/synchronization" },
+                {
+                  label: "Synchronization",
+                  route: "/useeffect/synchronization",
+                },
               ]}
+              activeGroup={activeGroup}
+              setActiveGroup={setActiveGroup}
             />
-            <NavItem icon={Users} label="Use Context" route="/usecontext" 
-            childrenItems={
-              [
-                {label: "Dark Light Mode", route: "usecontext/darklightmode"},
-                {label: "Auth Context", route: "usecontext/authcontext"},
-                {label: "Language Mode", route: "usecontext/languagemode"}
-              ]
-            }/>
-            <NavItem icon={GitMerge} label="Use Reducer" route="/usereducer" />
-            <NavItem icon={Cpu} label="Use Memo" route="/usememo" />
-            <NavItem icon={Repeat} label="Use Callback" route="/usecallback" />
-            <NavItem icon={Anchor} label="Use Ref" route="/useref" />
+            <NavItem
+              icon={Users}
+              label="Use Context"
+              route="/usecontext"
+              childrenItems={[
+                {
+                  label: "Dark Light Mode",
+                  route: "/usecontext/darklightmode",
+                },
+                { label: "Auth Context", route: "/usecontext/authcontext" },
+                { label: "Language Mode", route: "/usecontext/languagemode" },
+              ]}
+              activeGroup={activeGroup}
+              setActiveGroup={setActiveGroup}
+            />
+            <NavItem
+              icon={GitMerge}
+              label="Use Reducer"
+              route="/usereducer"
+              activeGroup={activeGroup}
+              setActiveGroup={setActiveGroup}
+            />
+            <NavItem
+              icon={Cpu}
+              label="Use Memo"
+              route="/usememo"
+              activeGroup={activeGroup}
+              setActiveGroup={setActiveGroup}
+            />
+            <NavItem
+              icon={Repeat}
+              label="Use Callback"
+              route="/usecallback"
+              activeGroup={activeGroup}
+              setActiveGroup={setActiveGroup}
+            />
+            <NavItem
+              icon={Anchor}
+              label="Use Ref"
+              route="/useref"
+              activeGroup={activeGroup}
+              setActiveGroup={setActiveGroup}
+            />
           </nav>
         </div>
       </aside>
@@ -104,6 +162,8 @@ interface NavItemProps {
   route: string;
   label: string;
   childrenItems?: SubItem[];
+  activeGroup: string | null;
+  setActiveGroup: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 const NavItem: React.FC<NavItemProps> = ({
@@ -111,16 +171,19 @@ const NavItem: React.FC<NavItemProps> = ({
   route = "#",
   label,
   childrenItems,
+  activeGroup,
+  setActiveGroup,
 }) => {
   const location = useLocation();
-  const [open, setOpen] = useState(() => {
-
-    return location.pathname.startsWith(route);
-  });
+  const hasChildren = !!(childrenItems && childrenItems.length);
+  const isActiveGroup = activeGroup === route;
+  const open = hasChildren ? isActiveGroup : false;
 
   useEffect(() => {
-    if (location.pathname.startsWith(route)) setOpen(true);
-  }, [location.pathname, route]);
+    if (hasChildren && location.pathname.startsWith(route)) {
+      setActiveGroup(route);
+    }
+  }, [hasChildren, location.pathname, route, setActiveGroup]);
 
   return (
     <div>
@@ -128,7 +191,7 @@ const NavItem: React.FC<NavItemProps> = ({
         <NavLink
           to={route}
           className={({ isActive }) => `
-    flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 group w-full
+    flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 rounded-xl transition-all duration-200 group w-full text-sm sm:text-base
     ${
       isActive
         ? "bg-blue-600 text-white shadow-lg shadow-blue-900/20"
@@ -138,20 +201,18 @@ const NavItem: React.FC<NavItemProps> = ({
         >
           {({ isActive }) => (
             <div className="flex items-center w-full">
-              <div className="flex items-center">
-                <Icon size={20} />
-                <span className="ml-3 font-medium whitespace-nowrap">
-                  {label}
-                </span>
+              <div className="flex items-center gap-2">
+                <Icon size={18} className="sm:w-5 sm:h-5" />
+                <span className="font-medium whitespace-nowrap">{label}</span>
               </div>
-              {childrenItems && childrenItems.length > 0 ? (
+              {hasChildren ? (
                 <div className="ml-auto">
                   <ChevronRight
                     size={14}
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
-                      setOpen((s) => !s);
+                      setActiveGroup((prev) => (prev === route ? null : route));
                     }}
                     className={`cursor-pointer transition-transform transform ${
                       open || isActive
@@ -166,14 +227,16 @@ const NavItem: React.FC<NavItemProps> = ({
         </NavLink>
       </div>
 
-      {childrenItems && childrenItems.length > 0 && (
-        <div className={`mt-2 pl-2 space-y-1 ${open ? "block" : "hidden"}`}>
+      {hasChildren && (
+        <div
+          className={`mt-1 sm:mt-2 pl-2 space-y-1 ${open ? "block" : "hidden"}`}
+        >
           {childrenItems.map((sub) => (
             <NavLink
               key={sub.route}
               to={sub.route}
               className={({ isActive }) =>
-                `block px-3 py-2 rounded-md text-sm transition-colors ${
+                `block px-3 py-2 rounded-md text-xs sm:text-sm transition-colors ${
                   isActive
                     ? "bg-blue-500 text-white"
                     : "text-slate-300 hover:bg-slate-800 hover:text-white"

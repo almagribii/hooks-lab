@@ -23,26 +23,26 @@ export const EventListener = () => {
   }, [isActive]);
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-8 font-sans">
-      <div className="mb-8 flex flex-col items-center text-center">
-        <h1 className="text-4xl font-black text-slate-900 mb-2 tracking-tight">
+    <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 md:p-8 font-sans">
+      <div className="mb-6 sm:mb-8 flex flex-col items-center text-center">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 mb-2 tracking-tight">
           useEffect <span className="text-sky-500">Event Listener</span>
         </h1>
-        <p className="text-lg text-slate-500 font-medium">
+        <p className="text-sm sm:text-base md:text-lg text-slate-500 font-medium">
           Case Study: Window Mouse Tracking & Cleanup Strategy
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 text-left">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8 text-left">
         {/* Left Content */}
-        <div className="bg-linear-to-br from-sky-50 via-white to-sky-50 border-3 border-sky-400 rounded-[3rem] p-10 shadow-2xl relative overflow-hidden">
+        <div className="bg-linear-to-br from-sky-50 via-white to-sky-50 border-3 border-sky-400 rounded-2xl sm:rounded-[3rem] p-4 sm:p-6 md:p-10 shadow-2xl relative overflow-hidden">
           <div className="flex items-center gap-3 mb-8">
             <div
-              className={`w-3 h-3 rounded-full ${
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full ${
                 isActive ? "bg-sky-500 animate-ping" : "bg-slate-300"
               }`}
             ></div>
-            <h2 className="text-2xl font-black text-slate-800 tracking-tight">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-black text-slate-800 tracking-tight">
               Interactive Stage
             </h2>
           </div>
@@ -79,7 +79,10 @@ export const EventListener = () => {
                   }px)`,
                 }}
               >
-                <MousePointer2 size={24} fill="currentColor" />
+                <MousePointer2
+                  className="w-5 h-5 sm:w-6 sm:h-6"
+                  fill="currentColor"
+                />
               </div>
             </div>
           </div>
@@ -87,7 +90,7 @@ export const EventListener = () => {
           <div className="flex gap-4">
             <button
               onClick={() => setIsActive(!isActive)}
-              className={`flex-1 py-4 rounded-2xl font-black text-sm uppercase tracking-widest transition-all active:scale-95 ${
+              className={`flex-1 py-2 px-4 sm:py-3 sm:px-6 md:py-4 text-xs sm:text-sm rounded-2xl font-black uppercase tracking-widest transition-all active:scale-95 ${
                 isActive
                   ? "bg-rose-500 text-white shadow-lg shadow-rose-200 hover:bg-rose-600"
                   : "bg-sky-600 text-white shadow-lg shadow-sky-200 hover:bg-sky-700"
@@ -99,15 +102,15 @@ export const EventListener = () => {
         </div>
 
         {/* RIGHT COLUMN: TECHNICAL TRACE */}
-        <div className="bg-slate-900 rounded-[3rem] p-10 shadow-2xl text-left border-b-8 border-sky-500">
+        <div className="bg-slate-900 rounded-2xl sm:rounded-[3rem] p-4 sm:p-6 md:p-10 shadow-2xl text-left border-b-8 border-sky-500">
           <div className="flex items-center gap-3 mb-8 text-white">
-            <Activity className="text-sky-400" size={24} />
-            <h2 className="text-2xl font-black tracking-tight italic">
+            <Activity className="text-sky-400 w-5 h-5 sm:w-6 sm:h-6" />
+            <h2 className="text-lg sm:text-xl md:text-2xl font-black tracking-tight italic">
               System Trace
             </h2>
           </div>
 
-          <div className="space-y-6 font-mono text-xs">
+          <div className="space-y-6 font-mono text-[10px] sm:text-xs">
             <div className="p-4 bg-slate-800 rounded-2xl border border-slate-700">
               <p className="text-sky-400 mb-2">// Hook Logic</p>
               <code className="text-slate-300 block leading-relaxed">
@@ -135,7 +138,7 @@ export const EventListener = () => {
 
             <div className="space-y-3 pt-4 border-t border-slate-800">
               <div className="flex items-start gap-3">
-                <ShieldCheck className="text-emerald-400 shrink-0" size={18} />
+                <ShieldCheck className="text-emerald-400 shrink-0 w-4 h-4 sm:w-5 sm:h-5" />
                 <p className="text-slate-400 leading-relaxed">
                   <span className="text-white font-bold tracking-wide">
                     Safe Unmount:
@@ -150,15 +153,15 @@ export const EventListener = () => {
         </div>
       </div>
 
-      <div className="bg-white border-2 border-slate-100 rounded-[2.5rem] p-8 flex items-center gap-6 shadow-sm">
-        <div className="w-14 h-14 rounded-2xl bg-sky-100 flex items-center justify-center shrink-0">
-          <ZapOff className="text-sky-600" size={28} />
+      <div className="bg-white border-2 border-slate-100 rounded-2xl sm:rounded-[2.5rem] p-4 sm:p-6 md:p-8 flex items-center gap-6 shadow-sm">
+        <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-2xl bg-sky-100 flex items-center justify-center shrink-0">
+          <ZapOff className="text-sky-600 w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
         </div>
         <div>
-          <h4 className="font-black text-slate-800 uppercase tracking-widest text-xs mb-1 underline decoration-sky-400 decoration-4">
+          <h4 className="font-black text-slate-800 uppercase tracking-widest text-[10px] sm:text-xs mb-1 underline decoration-sky-400 decoration-4">
             The Golden Rule
           </h4>
-          <p className="text-slate-500 text-sm italic">
+          <p className="text-slate-500 text-xs sm:text-sm italic">
             "Apa pun yang kamu pasang di dalam useEffect, pastikan kamu
             membereskannya saat selesai."
           </p>

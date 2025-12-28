@@ -60,21 +60,21 @@ export const LanguageMode = () => {
     <LanguageContext.Provider
       value={{ lang, t: translations[lang], toggleLang }}
     >
-      <div className="w-full min-h-screen bg-slate-50 p-8 font-sans transition-colors duration-500">
-        <div className="mb-12 flex flex-col items-center text-center">
-          <h1 className="text-4xl font-bold mb-2 text-slate-900">
+      <div className="w-full min-h-screen bg-slate-50 p-4 sm:p-6 md:p-8 font-sans transition-colors duration-500">
+        <div className="mb-6 sm:mb-8 md:mb-12 flex flex-col items-center text-center">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 text-slate-900">
             {translations[lang].title}
           </h1>
-          <p className="text-lg text-slate-600">
+          <p className="text-sm sm:text-base md:text-lg text-slate-600">
             {translations[lang].subtitle}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          <div className="rounded-3xl p-8 shadow-2xl border-3 bg-white border-blue-400">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto">
+          <div className="rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl border-3 bg-white border-blue-400">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-6 h-6 rounded-full bg-blue-500 shadow-lg"></div>
-              <h2 className="text-3xl font-bold text-blue-900">
+              <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-blue-500 shadow-lg"></div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-900">
                 {translations[lang].previewTitle}
               </h2>
             </div>
@@ -83,20 +83,20 @@ export const LanguageMode = () => {
               <MiddleComponent />
             </div>
 
-            <div className="rounded-xl p-5 border-2 bg-blue-100 border-blue-300 text-blue-800">
-              <p className="text-sm font-semibold mb-1">
+            <div className="rounded-xl p-3 sm:p-4 md:p-5 border-2 bg-blue-100 border-blue-300 text-blue-800">
+              <p className="text-xs sm:text-sm font-semibold mb-1">
                 💡 {translations[lang].obsTitle}
               </p>
-              <p className="text-sm leading-relaxed">
+              <p className="text-xs sm:text-sm leading-relaxed">
                 {translations[lang].obsText}
               </p>
             </div>
           </div>
 
-          <div className="rounded-3xl p-8 shadow-2xl border-3 bg-slate-900 border-amber-400">
+          <div className="rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl border-3 bg-slate-900 border-amber-400">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-6 h-6 rounded-full bg-amber-500"></div>
-              <h2 className="text-3xl font-bold text-amber-300">
+              <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-amber-500"></div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-amber-300">
                 Translation Logic
               </h2>
             </div>
@@ -124,18 +124,20 @@ export const LanguageMode = () => {
               </div>
             </div>
 
-            <div className="rounded-xl p-5 border-2 bg-slate-800 border-slate-700 text-slate-300">
-              <p className="text-sm font-semibold mb-2 italic">Data Flow:</p>
+            <div className="rounded-xl p-3 sm:p-4 md:p-5 border-2 bg-slate-800 border-slate-700 text-slate-300">
+              <p className="text-xs sm:text-sm font-semibold mb-2 italic">
+                Data Flow:
+              </p>
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-                  <span className="text-xs">
+                  <span className="text-[10px] sm:text-xs">
                     Context menyimpan <b>state</b> bahasa aktif.
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-                  <span className="text-xs">
+                  <span className="text-[10px] sm:text-xs">
                     Context mengirim <b>objek terjemahan</b> yang sesuai.
                   </span>
                 </div>
@@ -144,10 +146,10 @@ export const LanguageMode = () => {
           </div>
         </div>
 
-        <div className="mt-12 max-w-6xl mx-auto rounded-3xl p-1 shadow-2xl bg-linear-to-r from-blue-500 to-amber-500">
-          <div className="rounded-[22px] p-8 md:p-12 bg-white">
+        <div className="mt-6 sm:mt-8 md:mt-12 max-w-6xl mx-auto rounded-2xl sm:rounded-3xl p-1 shadow-2xl bg-linear-to-r from-blue-500 to-amber-500">
+          <div className="rounded-[22px] p-4 sm:p-6 md:p-8 lg:p-12 bg-white">
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-3xl font-bold mb-8 text-center text-slate-900">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 text-center text-slate-900">
                 Mengapa Ini Lebih Baik?
               </h3>
 
@@ -155,7 +157,7 @@ export const LanguageMode = () => {
                 <div className="text-center">
                   <div className="text-3xl mb-3">🎯</div>
                   <h4 className="font-bold mb-2">Single Source of Truth</h4>
-                  <p className="text-sm text-slate-600">
+                  <p className="text-xs sm:text-sm text-slate-600">
                     Hanya ada satu tempat untuk mengganti bahasa di seluruh
                     aplikasi.
                   </p>
@@ -163,7 +165,7 @@ export const LanguageMode = () => {
                 <div className="text-center">
                   <div className="text-3xl mb-3">🧩</div>
                   <h4 className="font-bold mb-2">Scalability</h4>
-                  <p className="text-sm text-slate-600">
+                  <p className="text-xs sm:text-sm text-slate-600">
                     Menambah bahasa baru (Jepang, Arab, dll) hanya perlu
                     menambah satu objek di dictionary.
                   </p>
@@ -171,7 +173,7 @@ export const LanguageMode = () => {
                 <div className="text-center">
                   <div className="text-3xl mb-3">🚀</div>
                   <h4 className="font-bold mb-2">Zero Props</h4>
-                  <p className="text-sm text-slate-600">
+                  <p className="text-xs sm:text-sm text-slate-600">
                     Komponen seperti Navbar atau Footer tidak perlu menerima
                     prop 'lang' lagi.
                   </p>
@@ -203,7 +205,7 @@ function LanguageSwitcher() {
   return (
     <button
       onClick={toggleLang}
-      className="group flex items-center justify-center gap-4 px-10 py-5 rounded-2xl font-bold text-xl transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-xl bg-slate-900 text-white hover:bg-slate-800"
+      className="group flex items-center justify-center gap-4 py-2 px-4 sm:py-3 sm:px-6 md:py-5 md:px-10 rounded-2xl font-bold text-sm sm:text-base md:text-xl transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-xl bg-slate-900 text-white hover:bg-slate-800"
     >
       <div className="flex gap-2">
         <span

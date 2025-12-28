@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 import { Footer } from "./Footer";
@@ -19,8 +19,10 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       <div className="flex flex-col flex-1 min-w-0">
         <Header toggleSidebar={toggleSidebar} />
 
-        <main className="flex-1 overflow-y-auto bg-gray-50 ">
-          <div className="flex justify-center mx-auto">{children}</div>
+        <main className="flex-1 overflow-y-auto bg-gray-50">
+          <div className="w-full">
+            {children}
+          </div>
           <Footer />
         </main>
       </div>

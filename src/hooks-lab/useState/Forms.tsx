@@ -45,22 +45,22 @@ export const Forms = () => {
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto p-8">
+    <div className="w-full max-w-7xl mx-auto p-4 sm:p-6 md:p-8">
       <div className="mb-8 flex flex-col items-center text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2">
           Form Demo dengan useState
         </h1>
-        <p className="text-lg text-gray-600">
+        <p className="text-sm sm:text-base md:text-lg text-gray-600">
           Perbedaan penggunaan useState vs variabel biasa dalam form handling
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         {/* FORM WITH useState */}
-        <div className="bg-linear-to-br from-blue-50 via-blue-100 to-blue-50 border-3 border-blue-400 rounded-3xl p-8 shadow-2xl">
+        <div className="bg-linear-to-br from-blue-50 via-blue-100 to-blue-50 border-3 border-blue-400 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-6 h-6 bg-blue-500 rounded-full animate-pulse"></div>
-            <h2 className="text-3xl font-bold text-blue-900">
+            <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-blue-500 rounded-full animate-pulse"></div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-900">
               Form dengan useState ✓
             </h2>
           </div>
@@ -68,7 +68,7 @@ export const Forms = () => {
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Fullname Input */}
             <div>
-              <label className="block text-sm font-bold text-blue-900 mb-2 uppercase tracking-wider">
+              <label className="block text-xs sm:text-sm font-bold text-blue-900 mb-2 uppercase tracking-wider">
                 Nama Lengkap
               </label>
               <input
@@ -77,9 +77,9 @@ export const Forms = () => {
                 value={formData.fullname}
                 onChange={handleChange}
                 placeholder="Masukkan nama..."
-                className="w-full px-4 py-3 border-2 border-blue-300 rounded-xl focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 transition-all"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border-2 border-blue-300 rounded-xl focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 transition-all"
               />
-              <p className="text-xs text-blue-700 mt-2">
+              <p className="text-xs sm:text-xs text-blue-700 mt-2">
                 📝 State:{" "}
                 <span className="font-bold bg-blue-200 px-2 py-1 rounded">
                   {formData.fullname || "kosong"}
@@ -89,7 +89,7 @@ export const Forms = () => {
 
             {/* Email Input */}
             <div>
-              <label className="block text-sm font-bold text-blue-900 mb-2 uppercase tracking-wider">
+              <label className="block text-xs sm:text-sm font-bold text-blue-900 mb-2 uppercase tracking-wider">
                 Email
               </label>
               <input
@@ -98,9 +98,9 @@ export const Forms = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Masukkan email..."
-                className="w-full px-4 py-3 border-2 border-blue-300 rounded-xl focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 transition-all"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border-2 border-blue-300 rounded-xl focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 transition-all"
               />
-              <p className="text-xs text-blue-700 mt-2">
+              <p className="text-xs sm:text-xs text-blue-700 mt-2">
                 📝 State:{" "}
                 <span className="font-bold bg-blue-200 px-2 py-1 rounded">
                   {formData.email || "kosong"}
@@ -110,7 +110,7 @@ export const Forms = () => {
 
             {/* Birthdate Input */}
             <div>
-              <label className="block text-sm font-bold text-blue-900 mb-2 uppercase tracking-wider">
+              <label className="block text-xs sm:text-sm font-bold text-blue-900 mb-2 uppercase tracking-wider">
                 Tanggal Lahir
               </label>
               <input
@@ -119,9 +119,9 @@ export const Forms = () => {
                 value={formData.birthdate}
                 onChange={handleChange}
                 placeholder="Masukkan tanggal lahir..."
-                className="w-full px-4 py-3 border-2 border-blue-300 rounded-xl focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 transition-all"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border-2 border-blue-300 rounded-xl focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 transition-all"
               />
-              <p className="text-xs text-blue-700 mt-2">
+              <p className="text-xs sm:text-xs text-blue-700 mt-2">
                 📝 State:{" "}
                 <span className="font-bold bg-blue-200 px-2 py-1 rounded">
                   {formData.birthdate || "kosong"}
@@ -131,15 +131,15 @@ export const Forms = () => {
 
             <button
               type="submit"
-              className="w-full bg-linear-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl active:scale-95 text-lg"
-            >
+              className="w-full bg-linear-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-3 px-5 sm:py-4 sm:px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl active:scale-95 text-sm sm:text-base">
+            
               ✓ Submit Form
             </button>
           </form>
 
-          <div className="mt-6 bg-blue-100 rounded-xl p-5 border-2 border-blue-300 space-y-2">
-            <p className="text-sm text-blue-900 font-bold">💡 Keuntungan:</p>
-            <ul className="text-sm text-blue-800 space-y-1">
+          <div className="mt-6 bg-blue-100 rounded-xl p-3 sm:p-4 md:p-5 border-2 border-blue-300 space-y-2">
+            <p className="text-xs sm:text-sm text-blue-900 font-bold">💡 Keuntungan:</p>
+            <ul className="text-xs sm:text-sm text-blue-800 space-y-1">
               <li>✓ State terupdate secara real-time</li>
               <li>✓ UI selalu sinkron dengan data</li>
               <li>✓ Mudah untuk validasi dan form handling</li>
@@ -149,10 +149,10 @@ export const Forms = () => {
         </div>
 
         {/* FORM WITHOUT useState */}
-        <div className="bg-linear-to-br from-orange-50 via-orange-100 to-orange-50 border-3 border-orange-400 rounded-3xl p-8 shadow-2xl">
+        <div className="bg-linear-to-br from-orange-50 via-orange-100 to-orange-50 border-3 border-orange-400 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-6 h-6 bg-orange-500 rounded-full"></div>
-            <h2 className="text-3xl font-bold text-orange-900">
+            <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-orange-500 rounded-full"></div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-orange-900">
               Form tanpa useState ✗
             </h2>
           </div>
@@ -160,7 +160,7 @@ export const Forms = () => {
           <form onSubmit={handleSubmitOrdinary} className="space-y-5">
             {/* Fullname Input */}
             <div>
-              <label className="block text-sm font-bold text-orange-900 mb-2 uppercase tracking-wider">
+              <label className="block text-xs sm:text-sm font-bold text-orange-900 mb-2 uppercase tracking-wider">
                 Nama Lengkap
               </label>
               <input
@@ -168,16 +168,16 @@ export const Forms = () => {
                 name="fullname"
                 onChange={handleChangeOrdinary}
                 placeholder="Masukkan nama..."
-                className="w-full px-4 py-3 border-2 border-orange-300 rounded-xl focus:outline-none focus:border-orange-600 focus:ring-2 focus:ring-orange-200 transition-all bg-orange-50"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border-2 border-orange-300 rounded-xl focus:outline-none focus:border-orange-600 focus:ring-2 focus:ring-orange-200 transition-all bg-orange-50"
               />
-              <p className="text-xs text-orange-700 mt-2">
+              <p className="text-xs sm:text-xs text-orange-700 mt-2">
                 ⚠️ Tidak ada state tracking (value tidak ditampilkan)
               </p>
             </div>
 
             {/* Email Input */}
             <div>
-              <label className="block text-sm font-bold text-orange-900 mb-2 uppercase tracking-wider">
+              <label className="block text-xs sm:text-sm font-bold text-orange-900 mb-2 uppercase tracking-wider">
                 Email
               </label>
               <input
@@ -185,16 +185,16 @@ export const Forms = () => {
                 name="email"
                 onChange={handleChangeOrdinary}
                 placeholder="Masukkan email..."
-                className="w-full px-4 py-3 border-2 border-orange-300 rounded-xl focus:outline-none focus:border-orange-600 focus:ring-2 focus:ring-orange-200 transition-all bg-orange-50"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border-2 border-orange-300 rounded-xl focus:outline-none focus:border-orange-600 focus:ring-2 focus:ring-orange-200 transition-all bg-orange-50"
               />
-              <p className="text-xs text-orange-700 mt-2">
+              <p className="text-xs sm:text-xs text-orange-700 mt-2">
                 ⚠️ Tidak ada state tracking (value tidak ditampilkan)
               </p>
             </div>
 
             {/* Birthdate Input */}
             <div>
-              <label className="block text-sm font-bold text-orange-900 mb-2 uppercase tracking-wider">
+              <label className="block text-xs sm:text-sm font-bold text-orange-900 mb-2 uppercase tracking-wider">
                 Tanggal Lahir
               </label>
               <input
@@ -202,24 +202,24 @@ export const Forms = () => {
                 name="birthdate"
                 onChange={handleChangeOrdinary}
                 placeholder="Masukkan tanggal lahir..."
-                className="w-full px-4 py-3 border-2 border-orange-300 rounded-xl focus:outline-none focus:border-orange-600 focus:ring-2 focus:ring-orange-200 transition-all bg-orange-50"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border-2 border-orange-300 rounded-xl focus:outline-none focus:border-orange-600 focus:ring-2 focus:ring-orange-200 transition-all bg-orange-50"
               />
-              <p className="text-xs text-orange-700 mt-2">
+              <p className="text-xs sm:text-xs text-orange-700 mt-2">
                 ⚠️ Tidak ada state tracking (value tidak ditampilkan)
               </p>
             </div>
 
             <button
               type="submit"
-              className="w-full bg-linear-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl active:scale-95 text-lg"
-            >
+              className="w-full bg-linear-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-3 px-5 sm:py-4 sm:px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl active:scale-95 text-sm sm:text-base">
+            
               ✗ Submit Form
             </button>
           </form>
 
-          <div className="mt-6 bg-orange-100 rounded-xl p-5 border-2 border-orange-300 space-y-2">
-            <p className="text-sm text-orange-900 font-bold">⚠️ Kekurangan:</p>
-            <ul className="text-sm text-orange-800 space-y-1">
+          <div className="mt-6 bg-orange-100 rounded-xl p-3 sm:p-4 md:p-5 border-2 border-orange-300 space-y-2">
+            <p className="text-xs sm:text-sm text-orange-900 font-bold">⚠️ Kekurangan:</p>
+            <ul className="text-xs sm:text-sm text-orange-800 space-y-1">
               <li>✗ Tidak bisa menampilkan value real-time</li>
               <li>✗ UI tidak terupdate otomatis</li>
               <li>✗ Sulit untuk validasi form</li>

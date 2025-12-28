@@ -16,34 +16,36 @@ export const DarkLightMode = () => {
       <div
         className={`w-full min-h-screen transition-colors duration-500 ${
           isDark ? "bg-slate-950" : "bg-gray-50"
-        } p-8 font-sans`}
+        } p-4 sm:p-6 md:p-8 font-sans`}
       >
-        <div className="mb-12 flex flex-col items-center text-center">
+        <div className="mb-6 sm:mb-8 flex flex-col items-center text-center">
           <h1
-            className={`text-4xl font-bold mb-2 ${
+            className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-2 ${
               isDark ? "text-white" : "text-gray-900"
             }`}
           >
             Hook Lab: useContext
           </h1>
           <p
-            className={`text-lg ${isDark ? "text-slate-400" : "text-gray-600"}`}
+            className={`text-sm sm:text-base md:text-lg ${
+              isDark ? "text-slate-400" : "text-gray-600"
+            }`}
           >
             State Management: Berbagi data antar komponen tanpa Prop Drilling
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto">
           <div
-            className={`rounded-3xl p-8 shadow-2xl border-3 transition-all duration-500 ${
+            className={`rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl border-3 transition-all duration-500 ${
               isDark
                 ? "bg-slate-900 border-indigo-500/50"
                 : "bg-white border-indigo-400"
             }`}
           >
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
               <div
-                className={`w-6 h-6 rounded-full ${
+                className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full ${
                   isDark
                     ? "bg-indigo-400 shadow-[0_0_10px_rgba(129,140,248,0.8)]"
                     : "bg-indigo-500"
@@ -69,16 +71,16 @@ export const DarkLightMode = () => {
             </div>
 
             <div
-              className={`rounded-xl p-5 border-2 ${
+              className={`rounded-xl p-3 sm:p-4 md:p-5 border-2 ${
                 isDark
                   ? "bg-slate-800/50 border-slate-700 text-slate-300"
                   : "bg-indigo-100 border-indigo-300 text-indigo-800"
               }`}
             >
-              <p className="text-sm font-semibold mb-1">
+              <p className="text-xs sm:text-sm font-semibold mb-1">
                 💡 Cara Kerja Context:
               </p>
-              <p className="text-sm leading-relaxed">
+              <p className="text-xs sm:text-sm leading-relaxed">
                 ThemeContext.Provider membungkus seluruh aplikasi. Komponen di
                 level terdalam bisa mengambil data langsung menggunakan
                 useContext.
@@ -87,7 +89,7 @@ export const DarkLightMode = () => {
           </div>
 
           <div
-            className={`rounded-3xl p-8 shadow-2xl border-3 transition-all duration-500 ${
+            className={`rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl border-3 transition-all duration-500 ${
               isDark
                 ? "bg-slate-900 border-emerald-500/50"
                 : "bg-white border-emerald-400"
@@ -95,14 +97,14 @@ export const DarkLightMode = () => {
           >
             <div className="flex items-center gap-3 mb-6">
               <div
-                className={`w-6 h-6 rounded-full ${
+                className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full ${
                   isDark
                     ? "bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]"
                     : "bg-emerald-500"
                 }`}
               ></div>
               <h2
-                className={`text-3xl font-bold ${
+                className={`text-xl sm:text-2xl md:text-3xl font-bold ${
                   isDark ? "text-emerald-300" : "text-emerald-900"
                 }`}
               >
@@ -151,14 +153,16 @@ export const DarkLightMode = () => {
             </div>
 
             <div
-              className={`rounded-xl p-5 border-2 ${
+              className={`rounded-xl p-3 sm:p-4 md:p-5 border-2 ${
                 isDark
                   ? "bg-slate-800/50 border-slate-700 text-slate-300"
                   : "bg-emerald-100 border-emerald-300 text-emerald-800"
               }`}
             >
-              <p className="text-sm font-semibold mb-1">🔍 Observasi:</p>
-              <p className="text-sm leading-relaxed italic">
+              <p className="text-xs sm:text-sm font-semibold mb-1">
+                🔍 Observasi:
+              </p>
+              <p className="text-xs sm:text-sm leading-relaxed italic">
                 Perhatikan bahwa KontenUtama bersifat pasif. Ia tidak menerima
                 atau mengirim data, namun anaknya bisa langsung menghirup data
                 dari Context.
@@ -168,20 +172,20 @@ export const DarkLightMode = () => {
         </div>
 
         <div
-          className={`mt-12 max-w-6xl mx-auto rounded-3xl p-1 shadow-2xl transition-all duration-500 ${
+          className={`mt-6 sm:mt-8 md:mt-12 max-w-6xl mx-auto rounded-2xl sm:rounded-3xl p-1 shadow-2xl transition-all duration-500 ${
             isDark
               ? "bg-indigo-500/50"
               : "bg-linear-to-r from-indigo-500 to-emerald-500"
           }`}
         >
           <div
-            className={`rounded-[22px] p-8 md:p-12 ${
+            className={`rounded-[22px] p-4 sm:p-6 md:p-8 lg:p-12 ${
               isDark ? "bg-slate-900" : "bg-white"
             }`}
           >
             <div className="max-w-4xl mx-auto">
               <h3
-                className={`text-3xl font-bold mb-8 text-center ${
+                className={`text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 text-center ${
                   isDark ? "text-white" : "text-gray-900"
                 }`}
               >
@@ -335,14 +339,13 @@ function TombolAjaib() {
   return (
     <button
       onClick={toggleTheme}
-      className={`group relative flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-xl transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-xl ${
+      className={`group relative flex items-center gap-3 py-2 px-4 sm:py-3 sm:px-6 md:py-4 md:px-8 rounded-2xl font-bold text-sm sm:text-base md:text-xl transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-xl ${
         isDark
           ? "bg-white text-slate-900 hover:bg-gray-100"
           : "bg-slate-900 text-white hover:bg-slate-800"
       }`}
     >
       <span>{isDark ? "Mode Terang ☀️" : "Mode Gelap 🌙"}</span>
-
     </button>
   );
 }
@@ -354,7 +357,6 @@ function useTheme() {
   }
   return context;
 }
-
 
 // === Simply Code ===
 // import { createContext, useState, useContext, } from "react";

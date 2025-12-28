@@ -1,6 +1,9 @@
 import { ArrowRight, Code, Zap, RefreshCw, Trash2 } from "lucide-react"; // Opsional: jika menggunakan lucide-react
+import { useNavigate } from "react-router-dom";
 
 export const UseEffect = () => {
+  const navigate = useNavigate();
+
   const steps = [
     {
       title: "Setup",
@@ -23,18 +26,18 @@ export const UseEffect = () => {
   ];
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-8 font-sans animate-in fade-in duration-700">
+    <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 md:p-8 font-sans animate-in fade-in duration-700">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-indigo-900 rounded-[3rem] p-12 mb-12 text-white shadow-2xl">
+      <div className="relative overflow-hidden bg-indigo-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 mb-8 sm:mb-10 md:mb-12 text-white shadow-2xl">
         <div className="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-indigo-700 rounded-full blur-3xl opacity-50"></div>
         <div className="relative z-10 max-w-2xl">
           <span className="px-4 py-1 bg-indigo-500/30 border border-indigo-400 rounded-full text-sm font-medium mb-6 inline-block">
             Core Hooks Series
           </span>
-          <h1 className="text-6xl font-black mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 tracking-tight">
             useEffect <span className="text-indigo-400">Hook</span>
           </h1>
-          <p className="text-xl text-indigo-100 leading-relaxed mb-8">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-indigo-100 leading-relaxed mb-6 sm:mb-8">
             Gunakan{" "}
             <code className="bg-indigo-800 px-2 py-1 rounded">useEffect</code>{" "}
             untuk menangani "Side Effects" seperti sinkronisasi data, langganan
@@ -42,47 +45,53 @@ export const UseEffect = () => {
             proses render utama.
           </p>
           <div className="flex gap-4">
-            <button className="bg-white text-indigo-900 px-8 py-3 rounded-2xl font-bold hover:bg-indigo-50 transition-colors flex items-center gap-2">
-              Mulai Belajar <ArrowRight size={20} />
+            <button
+              onClick={() => navigate("/useeffect/timer")}
+              className="bg-white text-indigo-900 px-6 sm:px-8 py-2 sm:py-3 rounded-2xl font-bold hover:bg-indigo-50 transition-colors flex items-center gap-2 text-sm sm:text-base"
+            >
+              Mulai Belajar <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
           </div>
         </div>
       </div>
 
       {/* Concept Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10 md:mb-12">
         {steps.map((step, idx) => (
           <div
             key={idx}
-            className={`p-8 rounded-3xl border-2 ${step.color} shadow-sm hover:shadow-md transition-all`}
+            className={`p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl border-2 ${step.color} shadow-sm hover:shadow-md transition-all`}
           >
-            <div className="mb-4 p-3 bg-white w-fit rounded-2xl shadow-sm italic">
+            <div className="mb-3 sm:mb-4 p-2 sm:p-3 bg-white w-fit rounded-xl sm:rounded-2xl shadow-sm italic">
               {step.icon}
             </div>
-            <h3 className="text-xl font-bold text-gray-800 mb-2">
+            <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-2">
               {step.title}
             </h3>
-            <p className="text-gray-600 text-sm leading-relaxed">{step.desc}</p>
+            <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+              {step.desc}
+            </p>
           </div>
         ))}
       </div>
 
       {/* Visual Mental Model */}
-      <div className="bg-white border-3 border-slate-100 rounded-[2.5rem] p-10 shadow-xl">
-        <h2 className="text-2xl font-bold mb-8 text-gray-900 flex items-center gap-3">
-          <Code className="text-indigo-600" /> Mental Model: Lifecycle
+      <div className="bg-white border-3 border-slate-100 rounded-2xl sm:rounded-3xl md:rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-xl">
+        <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-6 sm:mb-8 text-gray-900 flex items-center gap-2 sm:gap-3">
+          <Code className="text-indigo-600 w-5 h-5 sm:w-6 sm:h-6" /> Mental
+          Model: Lifecycle
         </h2>
 
         <div className="space-y-8 relative">
           {/* Connector Line */}
           <div className="absolute left-6 top-8 bottom-8 w-1 bg-slate-100 hidden md:block"></div>
 
-          <div className="flex gap-6 relative">
-            <div className="w-12 h-12 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold z-10 shrink-0 shadow-lg shadow-indigo-200">
+          <div className="flex gap-4 sm:gap-6 relative">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold z-10 shrink-0 shadow-lg shadow-indigo-200 text-sm sm:text-base">
               1
             </div>
             <div>
-              <h4 className="font-bold text-lg text-indigo-900">
+              <h4 className="font-bold text-base sm:text-lg text-indigo-900">
                 Render Phase
               </h4>
               <p className="text-gray-500 italic text-sm">
@@ -91,12 +100,12 @@ export const UseEffect = () => {
             </div>
           </div>
 
-          <div className="flex gap-6 relative">
-            <div className="w-12 h-12 rounded-full bg-violet-500 text-white flex items-center justify-center font-bold z-10 shrink-0 shadow-lg shadow-violet-200">
+          <div className="flex gap-4 sm:gap-6 relative">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-violet-500 text-white flex items-center justify-center font-bold z-10 shrink-0 shadow-lg shadow-violet-200 text-sm sm:text-base">
               2
             </div>
             <div>
-              <h4 className="font-bold text-lg text-violet-900">
+              <h4 className="font-bold text-base sm:text-lg text-violet-900">
                 Commit Phase (DOM Updated)
               </h4>
               <p className="text-gray-500 italic text-sm">
@@ -105,12 +114,12 @@ export const UseEffect = () => {
             </div>
           </div>
 
-          <div className="flex gap-6 relative">
-            <div className="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold z-10 shrink-0 shadow-lg shadow-emerald-200">
+          <div className="flex gap-4 sm:gap-6 relative">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold z-10 shrink-0 shadow-lg shadow-emerald-200 text-sm sm:text-base">
               3
             </div>
-            <div className="bg-emerald-50 p-6 rounded-2xl border-2 border-emerald-100 w-full">
-              <h4 className="font-bold text-lg text-emerald-900">
+            <div className="bg-emerald-50 p-4 sm:p-6 rounded-xl sm:rounded-2xl border-2 border-emerald-100 w-full">
+              <h4 className="font-bold text-base sm:text-lg text-emerald-900">
                 useEffect Runs! 🚀
               </h4>
               <p className="text-emerald-800 text-sm mt-1 mb-4">
@@ -132,8 +141,8 @@ export const UseEffect = () => {
       </div>
 
       {/* Interactive Tip */}
-      <div className="mt-12 text-center p-8 bg-indigo-50 border border-dashed border-indigo-300 rounded-3xl">
-        <p className="text-indigo-900 font-medium">
+      <div className="mt-8 sm:mt-10 md:mt-12 text-center p-4 sm:p-6 md:p-8 bg-indigo-50 border border-dashed border-indigo-300 rounded-2xl sm:rounded-3xl">
+        <p className="text-indigo-900 font-medium text-sm sm:text-base">
           💡 <span className="font-bold">Pro Tip:</span> Pikirkan useEffect
           sebagai jembatan antara dunia React yang murni (Pure UI) dengan dunia
           luar yang tidak terduga (API, Timer, Event Listener).

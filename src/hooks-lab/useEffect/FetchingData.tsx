@@ -9,7 +9,6 @@ interface Post {
 
 const url = "https://jsonplaceholder.typicode.com/posts";
 
-
 export const FetchingData = () => {
   const [post, setPost] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
@@ -20,7 +19,7 @@ export const FetchingData = () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      setPost(data.slice(0, 5)); 
+      setPost(data.slice(0, 5));
       setFetchCount((prev) => prev + 1);
       setLoading(false);
     } catch (error) {
@@ -35,29 +34,29 @@ export const FetchingData = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-8 font-sans">
+    <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 md:p-8 font-sans">
       {/* Header Section */}
-      <div className="mb-8 flex flex-col items-center text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">
+      <div className="mb-6 sm:mb-8 flex flex-col items-center text-center">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2">
           Hook Lab: useEffect
         </h1>
-        <p className="text-lg text-gray-600">
+        <p className="text-sm sm:text-base md:text-lg text-gray-600">
           Side Effect: Mengambil data dari API saat komponen pertama kali dimuat
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8">
         {/* LEFT COLUMN: VISUAL UI STATE */}
-        <div className="bg-linear-to-br from-indigo-50 via-indigo-100 to-indigo-50 border-3 border-indigo-400 rounded-3xl p-8 shadow-2xl">
+        <div className="bg-linear-to-br from-indigo-50 via-indigo-100 to-indigo-50 border-3 border-indigo-400 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-6 h-6 bg-indigo-500 rounded-full animate-pulse"></div>
-            <h2 className="text-3xl font-bold text-indigo-900">
+            <div className="w-5 h-5 sm:w-6 sm:h-6 bg-indigo-500 rounded-full animate-pulse"></div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-indigo-900">
               Data UI State
             </h2>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 mb-6 shadow-lg border-2 border-indigo-200 min-h-400px">
-            <p className="text-sm text-gray-500 font-semibold mb-4 uppercase tracking-wide">
+          <div className="bg-white rounded-2xl p-4 sm:p-5 md:p-6 mb-6 shadow-lg border-2 border-indigo-200 min-h-400px">
+            <p className="text-xs sm:text-sm text-gray-500 font-semibold mb-4 uppercase tracking-wide">
               Result from {url}:
             </p>
 
@@ -85,11 +84,11 @@ export const FetchingData = () => {
             )}
           </div>
 
-          <div className="bg-indigo-100 rounded-xl p-5 border-2 border-indigo-300">
-            <p className="text-sm text-indigo-900 font-semibold mb-1">
+          <div className="bg-indigo-100 rounded-xl p-3 sm:p-4 md:p-5 border-2 border-indigo-300">
+            <p className="text-xs sm:text-sm text-indigo-900 font-semibold mb-1">
               💡 Penjelasan UI:
             </p>
-            <p className="text-sm text-indigo-800 leading-relaxed">
+            <p className="text-xs sm:text-sm text-indigo-800 leading-relaxed">
               Data di atas disimpan di dalam <b>useState</b>. Saat{" "}
               <b>useEffect</b> selesai mengambil data, state diupdate dan UI
               dirender ulang secara otomatis.
@@ -98,19 +97,19 @@ export const FetchingData = () => {
         </div>
 
         {/* RIGHT COLUMN: EFFECT LOGIC & TRACE */}
-        <div className="bg-linear-to-br from-emerald-50 via-emerald-100 to-emerald-50 border-3 border-emerald-400 rounded-3xl p-8 shadow-2xl">
+        <div className="bg-linear-to-br from-emerald-50 via-emerald-100 to-emerald-50 border-3 border-emerald-400 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-6 h-6 bg-emerald-500 rounded-full"></div>
-            <h2 className="text-3xl font-bold text-emerald-900">
+            <div className="w-5 h-5 sm:w-6 sm:h-6 bg-emerald-500 rounded-full"></div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-emerald-900">
               Effect Trace
             </h2>
           </div>
 
-          <div className="bg-slate-900 rounded-2xl p-6 mb-6 shadow-lg border-2 border-emerald-200 min-h-400px font-mono">
+          <div className="bg-slate-900 rounded-2xl p-4 sm:p-5 md:p-6 mb-6 shadow-lg border-2 border-emerald-200 min-h-400px font-mono">
             <p className="text-xs text-emerald-400 font-semibold mb-4 uppercase tracking-wide">
               Console Output Simulator:
             </p>
-            <div className="space-y-3 text-sm">
+            <div className="space-y-3 text-xs sm:text-sm">
               <div className="text-emerald-300">
                 <span className="text-gray-500">[1]</span> Component Mounted...
               </div>
@@ -141,16 +140,16 @@ export const FetchingData = () => {
 
           <button
             onClick={() => fetchData()}
-            className="w-full bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold py-4 px-6 rounded-xl transition-all shadow-lg active:scale-95 text-lg mb-4"
+            className="w-full bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold py-2 px-4 sm:py-3 sm:px-6 md:py-4 text-sm sm:text-base md:text-lg rounded-xl transition-all shadow-lg active:scale-95 mb-4"
           >
             🔄 Re-fetch Data
           </button>
 
-          <div className="bg-emerald-100 rounded-xl p-5 border-2 border-emerald-300">
-            <p className="text-sm text-emerald-900 font-semibold mb-1">
+          <div className="bg-emerald-100 rounded-xl p-3 sm:p-4 md:p-5 border-2 border-emerald-300">
+            <p className="text-xs sm:text-sm text-emerald-900 font-semibold mb-1">
               💡 Penjelasan Effect:
             </p>
-            <p className="text-sm text-emerald-800 leading-relaxed">
+            <p className="text-xs sm:text-sm text-emerald-800 leading-relaxed">
               Dependency array{" "}
               <code className="bg-emerald-200 px-1 rounded">[]</code> memastikan
               fetch hanya jalan <b>sekali</b> saat komponen muncul (mount).
@@ -160,12 +159,12 @@ export const FetchingData = () => {
       </div>
 
       {/* Summary Footer */}
-      <div className="bg-linear-to-r from-indigo-500 to-emerald-500 rounded-3xl p-1 shadow-2xl">
-        <div className="bg-white rounded-[22px] p-8">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
+      <div className="bg-linear-to-r from-indigo-500 to-emerald-500 rounded-2xl sm:rounded-3xl p-1 shadow-2xl">
+        <div className="bg-white rounded-[22px] p-4 sm:p-6 md:p-8">
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 text-center">
             Kenapa Pakai useEffect?
           </h3>
-          <p className="text-center text-gray-600 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-center text-gray-600 max-w-2xl mx-auto">
             Tanpa useEffect, proses <b>fetchData()</b> akan terpanggil
             terus-menerus setiap kali komponen re-render, yang bisa menyebabkan
             aplikasi <i>crash</i> atau terkena <i>rate limit</i> API.

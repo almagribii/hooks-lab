@@ -1,4 +1,4 @@
-import { createContext, useState, useContext} from "react";
+import { createContext, useState, useContext } from "react";
 
 interface User {
   name: string;
@@ -40,40 +40,44 @@ export const AuthLab = () => {
     <AuthContext.Provider
       value={{ user, isAuthenticated: !!user, isLoading, login, logout }}
     >
-      <div className="w-full min-h-screen bg-slate-50 p-8 font-sans">
-        <div className="mb-12 flex flex-col items-center text-center">
-          <h1 className="text-4xl font-bold mb-2 text-slate-900">
+      <div className="w-full min-h-screen bg-slate-50 p-4 sm:p-6 md:p-8 font-sans">
+        <div className="mb-6 sm:mb-8 md:mb-12 flex flex-col items-center text-center">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 text-slate-900">
             Hook Lab: AuthContext
           </h1>
-          <p className="text-lg text-slate-600">
+          <p className="text-sm sm:text-base md:text-lg text-slate-600">
             Authentication: Mengelola status login user secara global
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          <div className="rounded-3xl p-8 shadow-2xl border-3 bg-white border-rose-400">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto">
+          <div className="rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl border-3 bg-white border-rose-400">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-6 h-6 rounded-full bg-rose-500 shadow-lg"></div>
-              <h2 className="text-3xl font-bold text-rose-900">App View</h2>
+              <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-rose-500 shadow-lg"></div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-rose-900">
+                App View
+              </h2>
             </div>
 
-            <div className="rounded-2xl p-8 mb-6 min-h-[350px] flex flex-col items-center justify-center border-2 bg-rose-50 border-rose-100 transition-all">
+            <div className="rounded-2xl p-8 mb-6 min-h-350px flex flex-col items-center justify-center border-2 bg-rose-50 border-rose-100 transition-all">
               <MainContainer />
             </div>
 
-            <div className="rounded-xl p-5 border-2 bg-rose-100 border-rose-300 text-rose-800">
-              <p className="text-sm font-semibold mb-1">💡 Info Status:</p>
-              <p className="text-sm leading-relaxed">
+            <div className="rounded-xl p-3 sm:p-4 md:p-5 border-2 bg-rose-100 border-rose-300 text-rose-800">
+              <p className="text-xs sm:text-sm font-semibold mb-1">
+                💡 Info Status:
+              </p>
+              <p className="text-xs sm:text-sm leading-relaxed">
                 Status login disimpan di <b>Top-Level Context</b>. Komponen
                 apapun bisa mengecek apakah user sudah login atau belum.
               </p>
             </div>
           </div>
 
-          <div className="rounded-3xl p-8 shadow-2xl border-3 bg-slate-900 border-cyan-400">
+          <div className="rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl border-3 bg-slate-900 border-cyan-400">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-6 h-6 rounded-full bg-cyan-500"></div>
-              <h2 className="text-3xl font-bold text-cyan-300">
+              <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-cyan-500"></div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-cyan-300">
                 Auth Logic Trace
               </h2>
             </div>
@@ -103,20 +107,20 @@ export const AuthLab = () => {
               </div>
             </div>
 
-            <div className="rounded-xl p-5 border-2 bg-slate-800 border-slate-700 text-slate-300">
-              <p className="text-sm font-semibold mb-2 italic">
+            <div className="rounded-xl p-3 sm:p-4 md:p-5 border-2 bg-slate-800 border-slate-700 text-slate-300">
+              <p className="text-xs sm:text-sm font-semibold mb-2 italic">
                 Fitur Context Ini:
               </p>
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-cyan-500"></div>
-                  <span className="text-xs">
+                  <span className="text-[10px] sm:text-xs">
                     <b>Async Simulation:</b> Loading saat "fetching" user.
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-cyan-500"></div>
-                  <span className="text-xs">
+                  <span className="text-[10px] sm:text-xs">
                     <b>Conditional Rendering:</b> Tampilan berubah sesuai state.
                   </span>
                 </div>
@@ -125,10 +129,10 @@ export const AuthLab = () => {
           </div>
         </div>
 
-        <div className="mt-12 max-w-6xl mx-auto rounded-3xl p-1 shadow-2xl bg-linear-to-r from-rose-500 to-cyan-500">
-          <div className="rounded-[22px] p-8 md:p-12 bg-white">
+        <div className="mt-6 sm:mt-8 md:mt-12 max-w-6xl mx-auto rounded-2xl sm:rounded-3xl p-1 shadow-2xl bg-linear-to-r from-rose-500 to-cyan-500">
+          <div className="rounded-[22px] p-4 sm:p-6 md:p-8 lg:p-12 bg-white">
             <div className="max-w-4xl mx-auto text-center">
-              <h3 className="text-3xl font-bold mb-8 text-slate-900">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 text-slate-900">
                 Bagaimana AuthContext Membantu?
               </h3>
 
@@ -137,7 +141,7 @@ export const AuthLab = () => {
                   <h4 className="font-bold text-rose-600 mb-2 font-mono italic">
                     Problem: Prop Drilling
                   </h4>
-                  <p className="text-sm text-slate-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                     Tanpa Context, kamu harus mengirim data <b>user</b> ke
                     Navbar, Sidebar, Profile, hingga Tombol Like di setiap
                     halaman secara manual.
@@ -147,7 +151,7 @@ export const AuthLab = () => {
                   <h4 className="font-bold text-cyan-600 mb-2 font-mono italic">
                     Solution: Global State
                   </h4>
-                  <p className="text-sm text-slate-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                     Dengan AuthContext, cukup panggil <b>useAuth()</b> di
                     komponen manapun. Jika user logout, semua komponen yang
                     menampilkan info user akan hilang otomatis.
@@ -188,7 +192,7 @@ function MainContainer() {
         <p className="text-slate-500 mb-6">{user.email}</p>
         <button
           onClick={logout}
-          className="px-8 py-3 bg-rose-600 text-white rounded-xl font-bold hover:bg-rose-700 transition-all shadow-lg active:scale-95"
+          className="py-2 px-4 sm:py-3 sm:px-6 md:px-8 bg-rose-600 text-white rounded-xl font-bold text-sm sm:text-base hover:bg-rose-700 transition-all shadow-lg active:scale-95"
         >
           Sign Out
         </button>
@@ -207,7 +211,7 @@ function MainContainer() {
       </p>
       <button
         onClick={login}
-        className="px-10 py-4 bg-slate-900 text-white rounded-2xl font-bold hover:bg-slate-800 transition-all shadow-xl active:scale-95"
+        className="py-2 px-4 sm:py-3 sm:px-6 md:py-4 md:px-10 bg-slate-900 text-white rounded-2xl font-bold text-sm sm:text-base hover:bg-slate-800 transition-all shadow-xl active:scale-95"
       >
         Login Simulation
       </button>
