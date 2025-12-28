@@ -168,9 +168,9 @@ export const UseMemo = () => {
       </div>
 
       <CollaborationInvite
-        hookName="useMemo"
-        repoUrl="https://github.com/almagribi/Exercise"
-        issueUrl="https://github.com/almagribi/Exercise/issues/new"
+        hookName="useRef"
+        repoUrl="https://github.com/almagribii/hooks-lab"
+        issueUrl="https://github.com/almagribii/hooks-lab/issues/new"
       />
     </div>
   );

@@ -195,8 +195,8 @@ export const UseRef = () => {
 
       <CollaborationInvite
         hookName="useRef"
-        repoUrl="https://github.com/almagribi/Exercise"
-        issueUrl="https://github.com/almagribi/Exercise/issues/new"
+        repoUrl="https://github.com/almagribii/hooks-lab"
+        issueUrl="https://github.com/almagribii/hooks-lab/issues/new"
       />
     </div>
   );

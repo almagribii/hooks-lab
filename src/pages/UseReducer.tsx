@@ -6,6 +6,7 @@ import {
   Terminal,
 } from "lucide-react";
 import { useRef } from "react";
+import CollaborationInvite from "../components/CollaborationInvite";
 
 export const UseReducer = () => {
   const flowRef = useRef<HTMLDivElement | null>(null);
@@ -183,6 +184,11 @@ export const UseReducer = () => {
           </div>
         </div>
       </div>
+       <CollaborationInvite
+              hookName="useRef"
+              repoUrl="https://github.com/almagribii/hooks-lab"
+              issueUrl="https://github.com/almagribii/hooks-lab/issues/new"
+            />
     </div>
   );
 };
