@@ -8,7 +8,10 @@ interface MainLayoutProps {
 }
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
+  const [isOpen, setIsOpen] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(min-width: 1024px)").matches;
+  });
 
   const toggleSidebar = () => setIsOpen((prev) => !prev);
 
@@ -20,9 +23,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         <Header toggleSidebar={toggleSidebar} />
 
         <main className="flex-1 overflow-y-auto bg-gray-50">
-          <div className="w-full">
-            {children}
-          </div>
+          <div className="w-full">{children}</div>
           <Footer />
         </main>
       </div>
