@@ -103,7 +103,8 @@ export const Counter = () => {
         </div>
       </div>
 
-      {/* Key Differences Section */}lz
+      {/* Key Differences Section */}
+      
             <div className="bg-linear-to-r from-purple-500 via-pink-500 to-purple-500 rounded-3xl p-1 shadow-2xl mb-8">
         <div className="bg-white rounded-3xl p-8">
           <h3 className="text-2xl font-bold text-gray-900 mb-6">
